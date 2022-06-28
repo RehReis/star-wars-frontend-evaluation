@@ -21,7 +21,6 @@ function getCachedData(key) {
 export const fetchPlanets = async () => {
   let cachedPlanets = getCachedData('allplanets');
   if (cachedPlanets){
-    console.log('cachedPlanets', cachedPlanets);
     return cachedPlanets;
   } else {
     try {
@@ -37,6 +36,7 @@ export const fetchPlanets = async () => {
         }
         currentUrl = data.next;
       }
+      sortData(results);
       cacheData('allplanets', results);
       return results;
     } catch(error) {
@@ -48,7 +48,6 @@ export const fetchPlanets = async () => {
 export const fetchResidents = (planet, residentsUrl) => {
   let cachedResidents = getCachedData(planet);
   if (cachedResidents){
-    console.log('cachedResidents', cachedResidents);
     return cachedResidents;
   } else {
     let residentsPromise = residentsUrl.map((residentUrl) => {
@@ -59,6 +58,17 @@ export const fetchResidents = (planet, residentsUrl) => {
     })
     return Promise.all(residentsPromise)
     .then((result) => {
+      result = result.map(result => ( {
+        name: result.name,
+        birthYear: result.birth_year,
+        gender: result.gender,
+        eyeColor: result.eye_color,
+        hairColor: result.hair_color,
+        height: result.height,
+        mass: result.mass,
+        skinColor: result.skin_color
+      }));
+      sortData(result);
       cacheData(planet, result);
       return result;
     })
@@ -66,4 +76,18 @@ export const fetchResidents = (planet, residentsUrl) => {
       console.log(error);
     })
   }
+}
+
+function sortData(data) {
+  data.sort((a, b) => {
+    let itemA = a.name;
+    let itemB = b.name;
+    if (itemA < itemB) {
+      return -1;
+    }
+    if (itemA > itemB) {
+      return 1;
+    }
+    return 0;
+  })
 }

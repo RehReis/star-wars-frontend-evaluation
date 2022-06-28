@@ -14,15 +14,15 @@ export default function ResidentDetails() {
       residentName={residentDetails.name} />
       <Container className="p-5">
         <Card style={{ width: '30rem' }} bg="warning">
-          <Card.Title>{residentDetails.name}</Card.Title>
+          <Card.Title style={{textAlign: "center"}}>{residentDetails.name}</Card.Title>
           <Container>
-            <ul>Birth-Year: {residentDetails.birth_year}</ul>
+            <ul>Birth-Year: {residentDetails.birthYear}</ul>
             <ul>Gender: {residentDetails.gender}</ul>
-            <ul>Eye-Color: {residentDetails.eye_color}</ul>
-            <ul>Hair-Color: {residentDetails.hair_color}</ul>
-            <ul>Height: {residentDetails.height}</ul>
-            <ul>Mass: {residentDetails.mass}</ul>
-            <ul>Skin-Color: {residentDetails.skin_color}</ul>
+            <ul>Eye-Color: {residentDetails.eyeColor}</ul>
+            <ul>Hair-Color: {residentDetails.hairColor}</ul>
+            <ul>Height: {residentDetails.height} (cm)</ul>
+            <ul>Mass: {residentDetails.mass} (kg)</ul>
+            <ul>Skin-Color: {residentDetails.skinColor}</ul>
           </Container>
         </Card>
     </Container>

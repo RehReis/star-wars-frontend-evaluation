@@ -19,15 +19,11 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       let planets = await fetchPlanets();
-      console.log(planets);
       setPlanets(planets);
     }
 
     fetchData();
 
-    return () => {
-      console.log('unmounted');
-    }
   }, []);
 
   return (
