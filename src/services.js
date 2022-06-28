@@ -1,10 +1,14 @@
 import axios from 'axios';
 
+// Add {data} to the local storage cache for 24h with {key}
+// May be out of date upon swapi updates, but we cache to avoid excessive api
+// usage.
 function cacheData(key, data) {
-  const expiration = new Date().getTime() + 1000 * 60 * 60 * 24 //24 hours;
+  const expiration = new Date().getTime() + 1000 * 60 * 60 * 24;
 	localStorage.setItem(key, JSON.stringify({data, expiration}))
 }
 
+// Fetch {key} from the local storage cache
 function getCachedData(key) {
 	let cachedData = localStorage.getItem(key);
 	if (!cachedData) {
@@ -18,6 +22,7 @@ function getCachedData(key) {
 	return cachedData.data;
 }
 
+// Fetch all planets from swapi (or local cache)
 export const fetchPlanets = async () => {
   let cachedPlanets = getCachedData('allplanets');
   if (cachedPlanets){
@@ -45,6 +50,7 @@ export const fetchPlanets = async () => {
   }
 }
 
+// fetch all residents for a given planet from swapi (or local cache)
 export const fetchResidents = (planet, residentsUrl) => {
   let cachedResidents = getCachedData(planet);
   if (cachedResidents){

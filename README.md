@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Star Wars Episode X: Frontend Evaluation
+### Table of Contents
+- [Star Wars Episode X: Frontend Evaluation](#star-wars-episode-x-frontend-evaluation)
+    - [Table of Contents](#table-of-contents)
+    - [General Info](#general-info)
+    - [Demo](#demo)
+    - [Tech Stack](#tech-stack)
+    - [Installation and Setup](#installation-and-setup)
+    - [Contributors](#contributors)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### General Info
+This app allows users to view list of all the planets in the Star Wars Universe.
+Requirements:
+- Use the Star Wars API to get a list of all the planets in the Star Wars Universe. Note, the api is paginated, so you will need to pull multiple times to get all the planets.
+- Display all of those planets in a list on the front page of your app. You may choose to show all the planets, or paginate them for the UX experience.
+- Add a text input at the top of the page that allows a user to search the full list of planets. The filtering should NOT re-call any api calls.
+- When a user clicks on a planet, they should navigate to a new page that shows a list of the residents of the planet fetched from the Star Wars API.
+- When a user clicks on one of the residents, they should navigate to another page that shows the personal details of that resident.
+- Include a header with breadcrumbs. Something like All Planets / Planet Name / Resident Name. Each breadcrumb section should be clickable to navigate to the appropriate page.
+- Include a service file that contains all the api urls and gets. Your React components should not contain any url references.
 
-## Available Scripts
+### Demo
+![star-wars-demo](https://user-images.githubusercontent.com/75865828/176321712-fc6fc80d-5627-4f2c-8f81-0dfa17a96a85.gif)
 
-In the project directory, you can run:
+### Tech Stack
+- Front End: Javascript, Mobx State Tree, React, React Router, React Bootstrap, Axios
 
-### `npm start`
+### Installation and Setup
+1. Clone down the repo `$ git clone https://github.com/RehReis/star-wars-frontend-evaluation.git`
+2. Install dependencies `$ npm install`
+3. Start webpack by running `$ npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Contributors
+- [Regina Grogan](https://github.com/RehReis)
