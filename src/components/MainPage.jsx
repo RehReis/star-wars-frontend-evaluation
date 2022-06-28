@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import {Container, Row} from 'react-bootstrap';
 
 //components
+import Navbar from './Navbar.jsx';
 import Planet from './Planet.jsx';
 
 export default function MainPage({planetsList}) {
@@ -19,6 +20,7 @@ export default function MainPage({planetsList}) {
 
   return (
     <Container className="p-3">
+      <Navbar/>
       <Container className="p-5">
         <input onChange={searchPlanetsOnChange} type="text" id="search-planet" placeholder="Search Planet" name="search-planet" />
       </Container>

@@ -1,12 +1,17 @@
 import { useLocation } from 'react-router-dom';
 import {Card, Container} from 'react-bootstrap';
 
+//components
+import Navbar from './Navbar.jsx';
+
 export default function ResidentDetails() {
   const location = useLocation();
-  let {residentDetails} = location.state;
+  let {residentDetails, planet} = location.state;
 
   return (
     <Container className="p-3">
+      <Navbar planetName={planet.planetName} residentsList={planet.residentsList}
+      residentName={residentDetails.name} />
       <Container className="p-5">
         <Card style={{ width: '30rem' }} bg="warning">
           <Card.Title>{residentDetails.name}</Card.Title>

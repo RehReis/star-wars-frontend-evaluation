@@ -4,6 +4,7 @@ import {fetchResidents} from '../services.js';
 import {Container, Row} from 'react-bootstrap';
 
 //components
+import Navbar from './Navbar.jsx';
 import Resident from './Resident.jsx';
 
 export default function Residents() {
@@ -22,6 +23,7 @@ export default function Residents() {
 
   return (
     <Container className="p-3">
+      <Navbar planetName={location.state.planetName}/>
       <Container className="p-5">
         <h5>Residents:</h5>
       </Container>
