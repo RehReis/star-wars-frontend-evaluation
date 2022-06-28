@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import {Container, Row} from 'react-bootstrap';
 
 //components
 import Planet from './Planet.jsx';
@@ -17,11 +18,15 @@ export default function MainPage({planetsList}) {
   }
 
   return (
-    <div>
-      <input onChange={searchPlanetsOnChange} type="text" id="search-planet" placeholder="Search Planet" name="search-planet" />
-      {searchedPlanets.map((planet, index) => (
-        <Planet key={index} planet={planet}/>
-      ))}
-    </div>
+    <Container className="p-3">
+      <Container className="p-5">
+        <input onChange={searchPlanetsOnChange} type="text" id="search-planet" placeholder="Search Planet" name="search-planet" />
+      </Container>
+      <Row md={4}>
+        {searchedPlanets.map((planet, index) => (
+          <Planet key={index} planet={planet}/>
+        ))}
+      </Row>
+    </Container>
   )
 }

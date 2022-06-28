@@ -1,0 +1,16 @@
+@import "~bootstrap/scss/bootstrap";
+
+$myColor: rgb(255,255,240);
+
+body {
+  height: '100vh';
+  background-image: url("../images/background.jpeg");
+  background-attachment: 'fixed';
+  background-repeat: 'no-repeat';
+  background-size: 'cover';
+  background-position: 'center center';
+};
+
+p, h5 {
+  color: $myColor;
+}

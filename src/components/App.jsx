@@ -11,7 +11,7 @@ import MainPage from './MainPage.jsx';
 import PlanetResidents from './PlanetResidents.jsx';
 import ResidentDetails from './ResidentDetails.jsx';
 
-import '../styles/App.css';
+import '../styles/App.scss';
 
 function App() {
   const [planetsList, setPlanets] = useState([]);
