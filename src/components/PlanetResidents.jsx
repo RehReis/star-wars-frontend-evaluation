@@ -13,13 +13,13 @@ export default function Residents() {
 
   useEffect(() => {
     const fetchData = async () => {
-      let residents = await fetchResidents(location.state.residentsList);
+      let residents = await fetchResidents(location.state.planetName, location.state.residentsList);
       setResidents(residents);
     }
 
     fetchData();
 
-  }, [location.state.residentsList]);
+  }, [location]);
 
   return (
     <Container className="p-3">
