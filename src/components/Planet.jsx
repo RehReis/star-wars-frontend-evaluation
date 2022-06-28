@@ -4,7 +4,8 @@ export default function Planet({planet}) {
   let navigate = useNavigate();
 
   const renderResidentsOnCLick = () => {
-    navigate("/planet-residents", {state: {residentsList: planet.residents, planetName: planet.name}})
+    let planetDetails = planet.toJSON();
+    navigate("/planet-residents", {state: {residentsList: planetDetails.residents, planetName: planetDetails.name}})
   }
 
   return (

@@ -3,8 +3,9 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
-import {useState, useEffect} from 'react';
-import {fetchPlanets} from '../services.js';
+import {useEffect} from 'react';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../store.js';
 
 //components
 import MainPage from './MainPage.jsx';
@@ -13,28 +14,21 @@ import ResidentDetails from './ResidentDetails.jsx';
 
 import '../styles/App.scss';
 
-function App() {
-  const [planetsList, setPlanets] = useState([]);
+export default observer(function App() {
+  const planetStore = useStore();
 
   useEffect(() => {
-    const fetchData = async () => {
-      let planets = await fetchPlanets();
-      setPlanets(planets);
-    }
-
-    fetchData();
-
-  }, []);
+    planetStore.fetchPlanetsList();
+  }, [planetStore]);
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<MainPage planetsList={planetsList}/>} />
+        <Route path="/" element={<MainPage />} />
         <Route path="/planet-residents" element={<PlanetResidents />} />
         <Route path="/resident-details" element={<ResidentDetails />} />
       </Routes>
     </Router>
   );
-}
+});
 
-export default App;

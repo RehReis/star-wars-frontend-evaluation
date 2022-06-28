@@ -4,7 +4,8 @@ export default function Resident({ resident, planet }) {
   let navigate = useNavigate();
 
   const renderResidentDetailsOnCLick = () => {
-    navigate("/resident-details", {state: {residentDetails: resident, planet}})
+    let residentDetails = resident.toJSON();
+    navigate("/resident-details", {state: {residentDetails, planet}})
   }
 
   return (

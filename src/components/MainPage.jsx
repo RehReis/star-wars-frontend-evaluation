@@ -1,20 +1,23 @@
 import {useState, useEffect} from 'react';
 import {Container, Row} from 'react-bootstrap';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../store.js';
 
 //components
 import Navbar from './Navbar.jsx';
 import Planet from './Planet.jsx';
 
-export default function MainPage({planetsList}) {
+export default observer(function MainPage() {
   const [searchedPlanets, setPlanets] = useState([]);
+  const planetStore = useStore();
 
   useEffect(() => {
-    setPlanets(planetsList);
-  }, [planetsList])
+    setPlanets(planetStore.planetsList);
+  }, [planetStore])
 
   let searchPlanetsOnChange = (e) => {
     let searchedPlanet = e.target.value.toLowerCase();
-    let searchedPlanetsList = planetsList.filter((planet) => planet.name.toLowerCase().includes(searchedPlanet));
+    let searchedPlanetsList = planetStore.planetsList.filter((planet) => planet.name.toLowerCase().includes(searchedPlanet));
     setPlanets(searchedPlanetsList);
   }
 
@@ -31,4 +34,4 @@ export default function MainPage({planetsList}) {
       </Row>
     </Container>
   )
-}
+});

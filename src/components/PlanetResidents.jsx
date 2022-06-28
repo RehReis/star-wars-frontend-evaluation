@@ -1,25 +1,22 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import {fetchResidents} from '../services.js';
-import {Container, Row} from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../store.js';
 
 //components
 import Navbar from './Navbar.jsx';
 import Resident from './Resident.jsx';
 
-export default function Residents() {
+export default observer(function Residents() {
   const [residentsList, setResidents] = useState([]);
   const location = useLocation();
+  const planetStore = useStore();
 
   useEffect(() => {
-    const fetchData = async () => {
-      let residents = await fetchResidents(location.state.planetName, location.state.residentsList);
-      setResidents(residents);
-    }
-
-    fetchData();
-
-  }, [location]);
+    planetStore.fetchResidentsList(location.state.planetName, location.state.residentsList);
+    setResidents(planetStore.residentsList);
+  }, [location, planetStore]);
 
   return (
     <Container className="p-3">
@@ -34,4 +31,4 @@ export default function Residents() {
       </Row>
     </Container>
   )
-}
+});
